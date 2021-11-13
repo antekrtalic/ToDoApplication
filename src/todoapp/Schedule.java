@@ -22,4 +22,10 @@ public class Schedule {
             }
         }
     }
+
+    public void printTasks() {
+        for (String i : this.toDoThings.keySet()) {
+            System.out.println(i + ": " + this.toDoThings.get(i));
+        }
+    }
 }
