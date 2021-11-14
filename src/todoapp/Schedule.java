@@ -26,7 +26,7 @@ public class Schedule {
     public void updateTask(String id, ToDoApplication newTask) {
         for (String task : toDoThings.keySet()) {
             if (task.equals(id)) {
-                toDoThings.replace(task, newTask);
+                toDoThings.replace(id, newTask);
                 return;
             }
         }

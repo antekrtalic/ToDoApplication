@@ -8,23 +8,31 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("What do you want to do?");
+        System.out.println("1. Add");
+        System.out.println("2. Update");
+        System.out.println("3. Delete");
+        System.out.println("4. Exit");
 
-        ToDoApplication toDoTaskOne = new ToDoApplication("study");
-        ToDoApplication toDoTaskTwo = new ToDoApplication("work");
-        ToDoApplication toDoTaskThree = new ToDoApplication("read");
+        String task = scanner.next();
 
-        Schedule schedule = new Schedule();
-        System.out.println("SCHEDULE LIST");
-        System.out.println("------------------------");
-        schedule.addTask("1", toDoTaskOne);
-        schedule.addTask("2", toDoTaskTwo);
-        schedule.addTask("3", toDoTaskThree);
-        schedule.printTasks();
+        Schedule scheduleList = new Schedule();
+        int taskCounter = 1;
 
-        System.out.println("Remove something from list");
-        String removeID = scanner.next();
-        schedule.removeTask(removeID);
-        schedule.printTasks();
+        do {
 
+            if (task.equals("1")) {
+                System.out.println("Add your new task!");
+                String addTask = scanner.next();
+                scheduleList.addTask(String.valueOf(taskCounter), new ToDoApplication(addTask));
+            } else if (task.equals("2")) {
+                System.out.println("Pick up task you want to edit!");
+                String taskNuber = scanner.next();
+                System.out.println("Choose new task to be replaced by old one: ");
+                String improvedTask = scanner.next();
+                scheduleList.updateTask(taskNuber, new ToDoApplication(improvedTask));
+            }
+
+        } while(!task.equals("4"));
     }
 }
