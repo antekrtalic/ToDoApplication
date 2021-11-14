@@ -50,7 +50,7 @@ public class Main {
             System.out.println("3. Delete");
             System.out.println("4. Exit");
 
-            task = scanner.next();
+            task = scanner.nextLine();
             taskCounter++;
 
         } while(!task.equals("4"));
