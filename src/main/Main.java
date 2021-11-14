@@ -19,7 +19,11 @@ public class Main {
         schedule.addTask("1", toDoTaskOne);
         schedule.addTask("2", toDoTaskTwo);
         schedule.addTask("3", toDoTaskThree);
+        schedule.printTasks();
 
+        System.out.println("Remove something from list");
+        String removeID = scanner.next();
+        schedule.removeTask(removeID);
         schedule.printTasks();
 
     }

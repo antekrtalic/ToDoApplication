@@ -15,7 +15,7 @@ public class Schedule {
     }
 
     public void removeTask(String id) {
-        for (String task : this.toDoThings.keySet()) {
+        for (String task : toDoThings.keySet()) {
             if (task.equals(id)) {
                 this.toDoThings.remove(id);
                 return;
@@ -23,9 +23,19 @@ public class Schedule {
         }
     }
 
-    public void printTasks() {
-        for (String i : this.toDoThings.keySet()) {
-            System.out.println(i + ": " + this.toDoThings.get(i));
+    public void updateTask(String id, ToDoApplication newTask) {
+        for (String task : toDoThings.keySet()) {
+            if (task.equals(id)) {
+                toDoThings.replace(task, newTask);
+                return;
+            }
         }
     }
+
+    public void printTasks() {
+        for (String i : this.toDoThings.keySet()) {
+            System.out.println(i + ": " + toDoThings.get(i));
+        }
+    }
+
 }
